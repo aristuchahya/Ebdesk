@@ -3,8 +3,6 @@ import {
   Get,
   Body,
   Patch,
-  Param,
-  Delete,
   UseGuards,
   HttpCode,
   HttpStatus,
@@ -47,15 +45,6 @@ export class UsersController {
   @Patch('update')
   update(@Req() request: Request, @Body() updateUserDto: UpdateUserDto) {
     return this.usersService.update(request, updateUserDto);
-  }
-
-  @UseGuards(AuthGuard)
-  @HttpCode(HttpStatus.OK)
-  @ApiResponse({ status: 201, description: 'Delete user successfully.' })
-  @ApiBearerAuth('access-token')
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.usersService.remove(id);
   }
 
   @UseGuards(AuthGuard)

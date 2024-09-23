@@ -117,7 +117,7 @@ export class AuthService {
   }
 
   //TODO: check password
-  private async validatePassword(password: string, hashedPassword: string) {
+  async validatePassword(password: string, hashedPassword: string) {
     const isMatch = await this.bcrypt.comparePassword(password, hashedPassword);
 
     if (!isMatch) throw new UnauthorizedException('Invalid credentials');

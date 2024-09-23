@@ -22,6 +22,7 @@ export class LoginDto {
   password: string;
 }
 
+// validasi register
 export const registerSchema = z.object({
   fullName: z.string().min(1, 'FullName cannot be empty').max(150),
   username: z
@@ -35,6 +36,7 @@ export const registerSchema = z.object({
     .max(30, 'Password cannot be longer than 30 characters'),
 });
 
+//validasi login
 export const loginSchema = z.object({
   username: z
     .string()

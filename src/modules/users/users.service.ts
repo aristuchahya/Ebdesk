@@ -67,12 +67,4 @@ export class UsersService {
   message() {
     return 'Welcome to PT Ebdesk API';
   }
-
-  async remove(id: string) {
-    return await this.prisma.users.delete({
-      where: {
-        id,
-      },
-    });
-  }
 }
